@@ -1,5 +1,4 @@
 import { Fragment } from "react"
-import { useMovie } from "../hooks/useMovie.jsx"
 
 const MovieList = ({ movies }) => {
 
@@ -7,7 +6,7 @@ const MovieList = ({ movies }) => {
     <ul className="movie-list">
       {
         movies?.map(movie => (
-          <li key={movie.id}>
+          <li key={movie.id} className="movie">
             <h3> {movie.title} </h3>
             <p> {movie.year} </p>
             <img src={movie.poster} alt={movie.title} />
@@ -20,12 +19,11 @@ const MovieList = ({ movies }) => {
 
 const NoMovieResults = () => {
   return (
-    <p> Not found </p>
+    <p> No se encontraron resultados </p>
   )
 }
 
-const Movies = () => {
-  const movies = useMovie()
+const Movies = ({ movies}) => {
   const hasMovies = movies?.length > 0;
 
   return (

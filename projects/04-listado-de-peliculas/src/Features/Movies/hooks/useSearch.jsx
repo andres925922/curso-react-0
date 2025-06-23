@@ -1,9 +1,9 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 export const useSearch = () => {
     const [query, setQuery] = useState('')
     const [error, setError] = useState(null)
-    const isFirstRender = useRef(true)
+    const [isFirstRender, setIsFirstRender] = useState(true)
 
 
     const updateQuery = (e) => {
@@ -12,8 +12,8 @@ export const useSearch = () => {
 
     useEffect(() => {
 
-        if (isFirstRender.current) {
-            isFirstRender.current = false
+        if (isFirstRender) {
+            setIsFirstRender(false)
             return
         }
 
@@ -38,5 +38,6 @@ export const useSearch = () => {
         error,
         updateQuery,
         setError,
+        isFirstRender
     }
 }
