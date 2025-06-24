@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { listProducts } from "../services/listProducts";
 
 const URL = "https://dummyjson.com/products";
 
@@ -11,16 +12,15 @@ export const useProducts = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch(URL)
-            .then(response => response.json())
-            .then(data => {
-                setProducts(data.products);
-            })
-            .catch(error => {
-                setError(error);
-            }).finally(() => {
-                setLoading(false);
+        try {
+            listProducts().then(products => {
+                setProducts(products);
             });
+        } catch (error) {
+            setError(error);
+        } finally {
+            setLoading(false);
+        }
 
         return () => {
             setProducts([]);
