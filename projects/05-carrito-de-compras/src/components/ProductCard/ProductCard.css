@@ -1,0 +1,21 @@
+.product-card h3 {
+    margin: 0;
+}
+
+.product-card span {
+    font-size: 1rem;
+    opacity: .9;
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+.product-list img {
+    border-radius: 4px;
+    width: 100%;
+    aspect-ratio: 16/9;
+    display: block;
+    object-fit: cover;
+    background: #fff;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
