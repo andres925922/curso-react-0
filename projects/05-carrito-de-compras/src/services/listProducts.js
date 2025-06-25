@@ -1,10 +1,11 @@
-const URL = "https://dummyjson.com/products";
+import { URL } from "../constants/apiUris";
 
 export async function listProducts() {
     const mapProducts = (product) => ({
         id: product.id,
         title: product.title,
         description: product.description,
+        category: product.category,
         price: product.price,
         thumbnail: product.thumbnail,
     });
