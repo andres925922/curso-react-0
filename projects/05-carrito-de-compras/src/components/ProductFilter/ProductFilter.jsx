@@ -13,7 +13,6 @@ export const ProductFilter = ({filters, setFilters}) => {
         setFilters({...filters, category: e.target.value});
     }
     
-    
     return (
         <div className="product-filter">
             <div className="filter" id={minPriceId}>
