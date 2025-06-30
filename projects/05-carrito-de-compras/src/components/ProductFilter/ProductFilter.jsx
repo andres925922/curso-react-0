@@ -1,9 +1,12 @@
-import { useId} from "react";
+import { useId, useContext } from "react";
 import "./ProductFilter.css";
+import { FilterContext } from "../../contexts/FilterContext";
 
-export const ProductFilter = ({filters, setFilters}) => {
+export const ProductFilter = () => {
     const minPriceId = useId();
     const categoryId = useId();
+
+    const {filters, setFilters} = useContext(FilterContext);
 
     const changeMinPrice = (e) => {
         setFilters({...filters, minPrice: e.target.value});

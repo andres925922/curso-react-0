@@ -1,16 +1,19 @@
 import { ProductList } from "../ProductList/ProductList";
 import { useFilters } from "../../hooks/useProductFilters";
 import { ProductFilter } from "../ProductFilter/ProductFilter";
+import { ProductsCart } from "../ProductsCart/ProductsCart";
+import { CartProvider } from "../../contexts/CartContext";
 
 export const Container = ({products, loading, error}) => {
-  const { filters, setFilters, filteredProducts } = useFilters({ products });  
+  const { filteredProducts } = useFilters({ products });  
   return (
-    <>
+    <CartProvider>
       <header>
         <h1>Carrito de compras</h1>
-        <ProductFilter filters={filters} setFilters={setFilters} />
+        <ProductFilter />
       </header>
+      <ProductsCart />
       <ProductList products={filteredProducts} loading={loading} error={error} />
-    </>
+    </CartProvider>
   );
 }
